@@ -37,7 +37,7 @@ body {
     padding: 24px 12px;
 }
 
-/* Container principal */
+
 .page {
     width: 100%;
     max-width: 2000px;
@@ -54,7 +54,7 @@ body {
     overflow: visible;
 }
 
-/* Glow decorativo */
+
 .page::before {
     content: "";
     position: absolute;
@@ -67,7 +67,7 @@ body {
     border-radius: inherit;
 }
 
-/* Barra superior */
+
 .top-bar {
     position: relative;
     z-index: 1;
@@ -101,7 +101,7 @@ body {
     max-width: 540px;
 }
 
-/* Botão principal */
+
 .btn-primary {
     border: none;
     cursor: pointer;
@@ -146,7 +146,7 @@ body {
     box-shadow: 0 10px 26px rgba(22, 163, 74, 0.6);
 }
 
-/* Layout principal */
+
 .layout {
     position: relative;
     z-index: 1;
@@ -155,14 +155,14 @@ body {
     gap: 20px;
 }
 
-/* Sidebar */
+
 .sidebar {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* Cartões */
+
 .card {
     background: linear-gradient(145deg,
             rgba(15, 23, 42, 0.9),
@@ -204,7 +204,7 @@ body {
     color: var(--text);
 }
 
-/* Card da foto */
+
 .card--photo {
     text-align: center;
     padding-top: 18px;
@@ -234,7 +234,7 @@ body {
     line-height: 1.4;
 }
 
-/* Lista de informações */
+
 .info-list {
     list-style: none;
     display: flex;
@@ -258,7 +258,7 @@ body {
     text-decoration: underline;
 }
 
-/* Seções de conteúdo */
+
 .content {
     display: flex;
     flex-direction: column;
@@ -271,11 +271,10 @@ body {
     padding: 18px 18px 14px;
     border: 1px solid rgba(148, 163, 184, 0.4);
     box-shadow: 0 16px 38px rgba(15, 23, 42, 0.85);
-    /* Evitar quebra feia no PDF */
     break-inside: avoid;
 }
 
-/* Cartão de experiência */
+
 .experience-card {
     border-radius: var(--radius-lg);
     background: radial-gradient(circle at 0 0, #020617, #020617);
@@ -305,7 +304,7 @@ body {
     opacity: 1;
 }
 
-/* Collapse */
+
 .collapse {
     border: none;
 }
@@ -327,7 +326,7 @@ body {
     display: none;
 }
 
-/* Ícone do colapso */
+
 .collapse summary::after {
     content: "▼";
     font-size: 0.7rem;
@@ -342,22 +341,19 @@ body {
     color: var(--accent);
 }
 
-/* Hover na linha de resumo */
+
 .collapse summary:hover {
     background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
 }
 
-/* Cabeçalho da experiência */
+
 .experience-header {
     display: flex;
     align-items: center;
     gap: 10px;
     flex: 1;
-    /* Ocupa o espaço disponível, empurrando a seta para o canto (se houver margem auto nela) */
     justify-content: space-between;
-    /* Separa Título e Data */
     margin-right: 18px;
-    /* Espaço para não grudar na seta */
 }
 
 .experience-header h3 {
@@ -380,7 +376,7 @@ body {
     border: 1px solid rgba(34, 197, 94, 0.35);
 }
 
-/* Corpo da experiência */
+
 .experience-body {
     padding: 12px 14px 12px;
     font-size: 0.86rem;
@@ -394,7 +390,7 @@ body {
     margin-bottom: 6px;
 }
 
-/* Lista de bullets */
+
 .bullet-list {
     padding-left: 18px;
     list-style: disc;
@@ -407,7 +403,7 @@ body {
     line-height: 1.5;
 }
 
-/* Rodapé */
+
 .footer {
     position: relative;
     z-index: 1;
@@ -418,8 +414,7 @@ body {
     padding: 0 4px;
 }
 
-/* Responsividade */
-/* Responsividade */
+/* Responsive */
 @media (max-width: 1024px) {
     .page {
         max-width: 100%;
@@ -433,7 +428,7 @@ body {
     body {
         padding: 10px;
         background: #020617;
-        /* Simplifica background em mobile */
+
     }
 
     .page {
@@ -447,7 +442,6 @@ body {
         gap: 24px;
     }
 
-    /* Em mobile, geralmente a Sidebar (Foto/Dados) vem primeiro para apresentar o candidato */
     .sidebar {
         order: -1;
     }
@@ -511,7 +505,7 @@ body {
         gap: 8px;
     }
 
-    /* Melhora experiência de leitura das experiências */
+
     .experience-header {
         flex-direction: column;
         align-items: flex-start;
@@ -529,16 +523,13 @@ body {
     }
 }
 
-/* ===== MODO PDF ===== */
 
 .pdf-mode {
     width: 1024px !important;
-    /* Força largura de desktop para o PDF */
 }
 
 .pdf-mode body {
     background: white !important;
-    /* Limpa o fundo */
     padding: 0 !important;
     display: block !important;
 }
@@ -552,10 +543,8 @@ body {
     border-radius: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    /* O container pai (.pdf-mode) já restringe a largura */
 }
 
-/* Reseta o grid/flex para layout de desktop caso esteja rodando em mobile */
 .pdf-mode .layout {
     display: grid !important;
     grid-template-columns: minmax(260px, 320px) minmax(0, 1fr) !important;
@@ -564,14 +553,12 @@ body {
 
 .pdf-mode .sidebar {
     order: unset !important;
-    /* Reseta a ordem da sidebar */
 }
 
 .pdf-mode .content {
     order: unset !important;
 }
 
-/* Remove backgrounds escuros para economizar tinta/estética clean */
 .pdf-mode .page,
 .pdf-mode .section,
 .pdf-mode .card,
@@ -601,14 +588,12 @@ body {
 
 .pdf-mode .top-bar {
     flex-direction: row !important;
-    /* Garante header horizontal */
     justify-content: space-between !important;
     align-items: center !important;
 }
 
 .pdf-mode .top-bar__right {
     display: none !important;
-    /* Esconde botão de download no PDF */
 }
 
 .pdf-mode .top-bar__left {
@@ -626,7 +611,6 @@ body {
     display: none !important;
 }
 
-/* Botão Flutuante do WhatsApp */
 .whatsapp-float {
     position: fixed;
     bottom: 80px;
@@ -659,12 +643,12 @@ body {
     fill: #fff;
 }
 
-/* Ajuste para não aparecer no modo PDF */
+
 .pdf-mode .whatsapp-float {
     display: none !important;
 }
 
-/* Responsividade para o botão */
+
 @media (max-width: 600px) {
     .whatsapp-float {
         width: 50px;
@@ -678,3 +662,4 @@ body {
         height: 26px;
     }
 }
+
