@@ -352,7 +352,12 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 100%;
+    flex: 1;
+    /* Ocupa o espaço disponível, empurrando a seta para o canto (se houver margem auto nela) */
+    justify-content: space-between;
+    /* Separa Título e Data */
+    margin-right: 18px;
+    /* Espaço para não grudar na seta */
 }
 
 .experience-header h3 {
