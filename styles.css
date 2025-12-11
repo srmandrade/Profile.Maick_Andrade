@@ -620,3 +620,56 @@ body {
 .pdf-mode .experience-card::before {
     display: none !important;
 }
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 80px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #20b857;
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+/* Ajuste para não aparecer no modo PDF */
+.pdf-mode .whatsapp-float {
+    display: none !important;
+}
+
+/* Responsividade para o botão */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 70px;
+        right: 20px;
+    }
+
+    .whatsapp-icon {
+        width: 26px;
+        height: 26px;
+    }
+}
