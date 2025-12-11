@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const btnPdf = document.getElementById("btn-pdf");
 
@@ -8,10 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/**
- * Gera o PDF do conteúdo principal do currículo
- * usando jsPDF (renderização HTML).
- */
 async function handleDownloadPdf() {
     const cvRoot = document.getElementById("cv-root");
 
@@ -21,7 +15,7 @@ async function handleDownloadPdf() {
     }
 
     try {
-        // Ativa o "modo PDF" (remove sombras, overflow etc.)
+
         document.body.classList.add("pdf-mode");
 
         const { jsPDF } = window.jspdf;
@@ -52,3 +46,4 @@ async function handleDownloadPdf() {
         );
     }
 }
+
