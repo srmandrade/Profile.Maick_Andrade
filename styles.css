@@ -414,65 +414,129 @@ body {
 }
 
 /* Responsividade */
-@media (max-width: 880px) {
+/* Responsividade */
+@media (max-width: 1024px) {
+    .page {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+    }
+}
+
+@media (max-width: 900px) {
     body {
-        padding: 12px;
+        padding: 10px;
+        background: #020617;
+        /* Simplifica background em mobile */
     }
 
     .page {
-        border-radius: 26px;
-        padding: 18px 14px;
+        padding: 20px 16px;
+        border-radius: 20px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
     }
 
     .layout {
         grid-template-columns: 1fr;
+        gap: 24px;
     }
 
+    /* Em mobile, geralmente a Sidebar (Foto/Dados) vem primeiro para apresentar o candidato */
     .sidebar {
-        order: 2;
-    }
-
-    .content {
-        order: 1;
+        order: -1;
     }
 
     .top-bar {
-        padding: 14px 14px 12px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .top-bar__left {
+        align-items: center;
     }
 
     .headline {
-        max-width: 100%;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .page {
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        padding: 16px 12px;
+    }
+
     .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
+        border-radius: 16px;
+        margin-bottom: 8px;
+    }
+
+    .name {
+        font-size: 1.4rem;
     }
 
     .top-bar__right {
         width: 100%;
-        display: flex;
-        justify-content: flex-start;
+        margin-top: 8px;
     }
 
     .btn-primary {
         width: 100%;
         justify-content: center;
+        padding: 12px;
     }
 
+    .info-list {
+        gap: 8px;
+    }
+
+    /* Melhora experiência de leitura das experiências */
     .experience-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 6px;
     }
 
     .experience-period {
-        margin-top: 6px;
+        align-self: flex-start;
+        font-size: 0.75rem;
+    }
+
+    .card,
+    .experience-card {
+        padding: 14px;
     }
 }
 
 /* ===== MODO PDF ===== */
+
+.pdf-mode {
+    width: 1024px !important;
+    /* Força largura de desktop para o PDF */
+}
+
+.pdf-mode body {
+    background: white !important;
+    /* Limpa o fundo */
+    padding: 0 !important;
+    display: block !important;
+}
 
 .pdf-mode .page,
 .pdf-mode .section,
@@ -481,6 +545,74 @@ body {
     overflow: visible !important;
     box-shadow: none !important;
     border-radius: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    /* O container pai (.pdf-mode) já restringe a largura */
+}
+
+/* Reseta o grid/flex para layout de desktop caso esteja rodando em mobile */
+.pdf-mode .layout {
+    display: grid !important;
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr) !important;
+    gap: 20px !important;
+}
+
+.pdf-mode .sidebar {
+    order: unset !important;
+    /* Reseta a ordem da sidebar */
+}
+
+.pdf-mode .content {
+    order: unset !important;
+}
+
+/* Remove backgrounds escuros para economizar tinta/estética clean */
+.pdf-mode .page,
+.pdf-mode .section,
+.pdf-mode .card,
+.pdf-mode .experience-card,
+.pdf-mode .top-bar {
+    background: none !important;
+    border: 1px solid #ccc !important;
+    color: #000 !important;
+}
+
+.pdf-mode .name,
+.pdf-mode h1,
+.pdf-mode h2,
+.pdf-mode h3,
+.pdf-mode h4,
+.pdf-mode p,
+.pdf-mode li,
+.pdf-mode span {
+    color: #000 !important;
+}
+
+.pdf-mode .headline,
+.pdf-mode .experience-company,
+.pdf-mode .card__title {
+    color: #444 !important;
+}
+
+.pdf-mode .top-bar {
+    flex-direction: row !important;
+    /* Garante header horizontal */
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.pdf-mode .top-bar__right {
+    display: none !important;
+    /* Esconde botão de download no PDF */
+}
+
+.pdf-mode .top-bar__left {
+    align-items: flex-start !important;
+}
+
+.pdf-mode .profile-photo {
+    box-shadow: none !important;
+    border-color: #333 !important;
 }
 
 .pdf-mode .page::before,
